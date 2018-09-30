@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ConductoresModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="conductor">
+    <Key>
+      <PropertyRef Name="dni" />
+    </Key>
+    <Property Name="nombre" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="apellido" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="dni" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="fecha_nac" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="tipo_carnet" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Material" Relationship="Self.FK__Material__conduc__1273C1CD" FromRole="conductor" ToRole="Material" />
+  </EntityType>
+  <EntityType Name="Material">
+    <Key>
+      <PropertyRef Name="id_material" />
+    </Key>
+    <Property Name="id_material" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="fecha_entrega" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="fecha_devolucion" Type="DateTime" Precision="0" />
+    <Property Name="conductor_dni" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="conductor" Relationship="Self.FK__Material__conduc__1273C1CD" FromRole="Material" ToRole="conductor" />
+  </EntityType>
+  <Association Name="FK__Material__conduc__1273C1CD">
+    <End Role="conductor" Type="Self.conductor" Multiplicity="0..1" />
+    <End Role="Material" Type="Self.Material" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="conductor">
+        <PropertyRef Name="dni" />
+      </Principal>
+      <Dependent Role="Material">
+        <PropertyRef Name="conductor_dni" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ConductoresEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="conductor" EntityType="Self.conductor" />
+    <EntitySet Name="Material" EntityType="Self.Material" />
+    <AssociationSet Name="FK__Material__conduc__1273C1CD" Association="Self.FK__Material__conduc__1273C1CD">
+      <End Role="conductor" EntitySet="conductor" />
+      <End Role="Material" EntitySet="Material" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

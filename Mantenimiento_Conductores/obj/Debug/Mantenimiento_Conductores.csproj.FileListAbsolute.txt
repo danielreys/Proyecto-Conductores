@@ -1,0 +1,15 @@
+c:\users\dani\documents\visual studio 2015\Projects\Mantenimiento_Conductores\bin\Debug\Mantenimiento_Conductores.exe.config
+c:\users\dani\documents\visual studio 2015\Projects\Mantenimiento_Conductores\obj\Debug\Mantenimiento_Conductores.Properties.Resources.resources
+c:\users\dani\documents\visual studio 2015\Projects\Mantenimiento_Conductores\obj\Debug\Mantenimiento_Conductores.csproj.GenerateResource.Cache
+c:\users\dani\documents\visual studio 2015\Projects\Mantenimiento_Conductores\bin\Debug\Mantenimiento_Conductores.exe
+c:\users\dani\documents\visual studio 2015\Projects\Mantenimiento_Conductores\bin\Debug\Mantenimiento_Conductores.pdb
+c:\users\dani\documents\visual studio 2015\Projects\Mantenimiento_Conductores\bin\Debug\EntityFramework.dll
+c:\users\dani\documents\visual studio 2015\Projects\Mantenimiento_Conductores\bin\Debug\EntityFramework.SqlServer.dll
+c:\users\dani\documents\visual studio 2015\Projects\Mantenimiento_Conductores\bin\Debug\EntityFramework.xml
+c:\users\dani\documents\visual studio 2015\Projects\Mantenimiento_Conductores\bin\Debug\EntityFramework.SqlServer.xml
+c:\users\dani\documents\visual studio 2015\Projects\Mantenimiento_Conductores\obj\Debug\Mantenimiento_Conductores.FormConductores.resources
+c:\users\dani\documents\visual studio 2015\Projects\Mantenimiento_Conductores\obj\Debug\Mantenimiento_Conductores.FormDatosConductores.resources
+c:\users\dani\documents\visual studio 2015\Projects\Mantenimiento_Conductores\obj\Debug\Mantenimiento_Conductores.FormMateriales.resources
+c:\users\dani\documents\visual studio 2015\Projects\Mantenimiento_Conductores\obj\Debug\Mantenimiento_Conductores.exe
+c:\users\dani\documents\visual studio 2015\Projects\Mantenimiento_Conductores\obj\Debug\Mantenimiento_Conductores.pdb
+C:\Users\Dani\documents\visual studio 2015\Projects\Mantenimiento_Conductores\obj\Debug\Mantenimiento_Conductores.csprojResolveAssemblyReference.cache

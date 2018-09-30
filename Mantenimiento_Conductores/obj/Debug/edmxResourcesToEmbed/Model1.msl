@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ConductoresModelStoreContainer" CdmEntityContainer="ConductoresEntities">
+    <EntitySetMapping Name="conductor">
+      <EntityTypeMapping TypeName="ConductoresModel.conductor">
+        <MappingFragment StoreEntitySet="conductor">
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellido" ColumnName="apellido" />
+          <ScalarProperty Name="dni" ColumnName="dni" />
+          <ScalarProperty Name="fecha_nac" ColumnName="fecha_nac" />
+          <ScalarProperty Name="tipo_carnet" ColumnName="tipo_carnet" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Material">
+      <EntityTypeMapping TypeName="ConductoresModel.Material">
+        <MappingFragment StoreEntitySet="Material">
+          <ScalarProperty Name="id_material" ColumnName="id_material" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="fecha_entrega" ColumnName="fecha_entrega" />
+          <ScalarProperty Name="fecha_devolucion" ColumnName="fecha_devolucion" />
+          <ScalarProperty Name="conductor_dni" ColumnName="conductor_dni" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

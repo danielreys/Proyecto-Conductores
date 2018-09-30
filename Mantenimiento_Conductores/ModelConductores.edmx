@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ConductoresModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="conductor">
+          <Key>
+            <PropertyRef Name="dni" />
+          </Key>
+          <Property Name="nombre" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="apellido" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="dni" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="fecha_nac" Type="date" Nullable="false" />
+          <Property Name="tipo_carnet" Type="char" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Material">
+          <Key>
+            <PropertyRef Name="id_material" />
+          </Key>
+          <Property Name="id_material" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="fecha_entrega" Type="date" Nullable="false" />
+          <Property Name="fecha_devolucion" Type="date" />
+          <Property Name="conductor_dni" Type="varchar" MaxLength="9" />
+        </EntityType>
+        <Association Name="FK__Material__conduc__1273C1CD">
+          <End Role="conductor" Type="Self.conductor" Multiplicity="0..1" />
+          <End Role="Material" Type="Self.Material" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="conductor">
+              <PropertyRef Name="dni" />
+            </Principal>
+            <Dependent Role="Material">
+              <PropertyRef Name="conductor_dni" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ConductoresModelStoreContainer">
+          <EntitySet Name="conductor" EntityType="Self.conductor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Material" EntityType="Self.Material" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Material__conduc__1273C1CD" Association="Self.FK__Material__conduc__1273C1CD">
+            <End Role="conductor" EntitySet="conductor" />
+            <End Role="Material" EntitySet="Material" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ConductoresModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="conductor">
+          <Key>
+            <PropertyRef Name="dni" />
+          </Key>
+          <Property Name="nombre" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellido" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dni" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fecha_nac" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="tipo_carnet" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Material" Relationship="Self.FK__Material__conduc__1273C1CD" FromRole="conductor" ToRole="Material" />
+        </EntityType>
+        <EntityType Name="Material">
+          <Key>
+            <PropertyRef Name="id_material" />
+          </Key>
+          <Property Name="id_material" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fecha_entrega" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="fecha_devolucion" Type="DateTime" Precision="0" />
+          <Property Name="conductor_dni" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="conductor" Relationship="Self.FK__Material__conduc__1273C1CD" FromRole="Material" ToRole="conductor" />
+        </EntityType>
+        <Association Name="FK__Material__conduc__1273C1CD">
+          <End Role="conductor" Type="Self.conductor" Multiplicity="0..1" />
+          <End Role="Material" Type="Self.Material" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="conductor">
+              <PropertyRef Name="dni" />
+            </Principal>
+            <Dependent Role="Material">
+              <PropertyRef Name="conductor_dni" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ConductoresEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="conductor" EntityType="Self.conductor" />
+          <EntitySet Name="Material" EntityType="Self.Material" />
+          <AssociationSet Name="FK__Material__conduc__1273C1CD" Association="Self.FK__Material__conduc__1273C1CD">
+            <End Role="conductor" EntitySet="conductor" />
+            <End Role="Material" EntitySet="Material" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ConductoresModelStoreContainer" CdmEntityContainer="ConductoresEntities1">
+          <EntitySetMapping Name="conductor">
+            <EntityTypeMapping TypeName="ConductoresModel.conductor">
+              <MappingFragment StoreEntitySet="conductor">
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="dni" ColumnName="dni" />
+                <ScalarProperty Name="fecha_nac" ColumnName="fecha_nac" />
+                <ScalarProperty Name="tipo_carnet" ColumnName="tipo_carnet" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Material">
+            <EntityTypeMapping TypeName="ConductoresModel.Material">
+              <MappingFragment StoreEntitySet="Material">
+                <ScalarProperty Name="id_material" ColumnName="id_material" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="fecha_entrega" ColumnName="fecha_entrega" />
+                <ScalarProperty Name="fecha_devolucion" ColumnName="fecha_devolucion" />
+                <ScalarProperty Name="conductor_dni" ColumnName="conductor_dni" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
